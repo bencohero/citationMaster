@@ -10,6 +10,16 @@ export async function getCitationAction(id: number){
     }
 }
 
+export async function getCitationsAction(){
+    try {
+        return await prisma.citation.findMany();
+    } catch {
+        return {
+            error: "Error occured while fetching the citations !!"
+        }
+    }
+}
+
 export async function createCitationAction(citation: {
     text: string,
     author: string

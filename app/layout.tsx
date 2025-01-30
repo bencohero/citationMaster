@@ -1,8 +1,8 @@
+import { Header } from "@/src/components/header";
+import { Toaster } from "@/src/components/ui/sonner";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from '@/src/components/header';
-import { Toaster } from "@/src/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,15 +25,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
-      
+    <html
+      lang="en"
+      className="h-full"
+      data-lt-extension-installed="true"
+      data-qb-installed="true"
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased h-full max-w-lg px-4 py-6`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased h-full w-full justify-self-center md:w-[512] lg:w-[768px] px-4 md:px-20 lg:px-40 py-6`}
       >
         <div className="flex flex-col gap-6">
-        <Header/>
-        <main>{children}</main>
-        <Toaster />
+          <Header />
+          <main>{children}</main>
+          <Toaster />
         </div>
       </body>
     </html>
